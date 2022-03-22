@@ -1,0 +1,22 @@
+h1{
+  text-align: center;
+  margin-bottom: 80px;
+  color : blue;
+}
+
+.form{
+  max-width: 800px;
+  margin: auto;
+}
+
+.form .row{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom : 50px;
+}
+
+.form .mybtn{
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
