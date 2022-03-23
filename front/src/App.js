@@ -11,21 +11,37 @@ const App = () => {
   const [filiere , setFiliere] = useState('');
   const [cne , setCNE] = useState('');
   const [ville , setVille] = useState('');
+  const [students , setStudents] = useState(null);
 
-  //EFFETU IT My call
-  // useEffect(() => {
-    // Met à jour le titre du document via l’API du navigateur
+
+
+useEffect(()=>{
+  console.log("Hey");
+},[]);
+
 const AddStudent = async () => {
     try{
 
       const res = await axios.get("/api/v1/students");
       const data = res.data;
-      console.log(data);
+      setStudents(data);
     }catch(err){
       console.log(err);
     }
 }
-  // },[]);
+
+const GetStudents = async () => {
+    try{
+
+      const res = await axios.get("/api/v1/students");
+      const data = res.data;
+      setStudents(data);
+      console.log(students);
+    }catch(err){
+      console.log(err);
+    }
+}
+
 
   return (
     <div className="App">
@@ -43,9 +59,23 @@ const AddStudent = async () => {
           <TextField id="standard-basic" className="center" label="CNE" variant="standard" onChange={(e) => setCNE(e.target.value)}/>
         </div>
         <div className="mybtn">
-          <Button variant="contained" onClick={AddStudent}>Add Student</Button>
+          <Button variant="contained" onClick={() => AddStudent}>Add Student</Button>
         </div>
 
+      </div>
+      <div className="table">
+        <table>
+        <tr>
+          <th>ID</th>
+          <th>Nom</th>
+          <th>Prenom</th>
+        </tr>
+          <tr>
+            <td>1</td>
+            <td>Kassi</td>
+            <td>Ayoub</td>
+          </tr>
+        </table>
       </div>
     </div>
   );
